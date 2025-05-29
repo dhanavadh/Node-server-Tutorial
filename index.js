@@ -10,7 +10,7 @@ app.use(bodyParser.json())
 
 let conn = null
 
-const iinitMySQL = async () => {
+const initMySQL = async () => {
     conn = await mysql.createConnection({
         host: process.env.DB_HOST,
         user: process.env.DB_USER,
@@ -142,6 +142,6 @@ let users = []
 let counter = 1
 
 app.listen(8000, async (req, res) => {
-    await iinitMySQL()
+    await initMySQL()
     console.log('Server started on port 8000')
 })
